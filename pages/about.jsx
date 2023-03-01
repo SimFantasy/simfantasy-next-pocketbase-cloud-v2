@@ -54,6 +54,7 @@ export const getStaticProps = async () => {
 
   return {
     props: { author },
+    revalidate: 10,
   }
 }
 

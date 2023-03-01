@@ -87,6 +87,7 @@ export const getStaticProps = async ({ params: { param } }) => {
   const post = await fetchPost(id)
   return {
     props: { post },
+    revalidate: 10,
   }
 }
 

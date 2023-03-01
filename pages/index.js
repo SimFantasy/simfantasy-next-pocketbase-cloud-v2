@@ -20,6 +20,7 @@ export const getStaticProps = async () => {
   const featurePosts = await fetchFeaturePosts()
   return {
     props: { featurePosts },
+    revalidate: 10,
   }
 }
 
