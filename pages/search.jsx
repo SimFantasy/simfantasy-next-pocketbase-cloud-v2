@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import { RiSearch2Line, RiEmotionUnhappyLine } from 'react-icons/ri'
-import fantasyApi from '@/service/apis'
+import { fetchPosts } from '@/service/apis'
 import { PostList } from '@/components'
 import { siteName } from '@/constants/config'
 
@@ -53,11 +53,11 @@ const SearchPage = ({ searchResult, searchParams, page }) => {
           <div className='flex flex-col md:flex-row justify-center items-center gap-2 p-6 text-lg text-gray-500 border border-gray-200 rounded-md bg-gray-50 dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100'>
             <RiEmotionUnhappyLine size={24} />
             <span className=''>
-              Sorry~, no "
+              Sorry~, no
               <span className='text-red-500 dark:text-red-400'>
                 {searchParams}
               </span>
-              " posts were found!
+              posts were found!
             </span>
           </div>
         )}
@@ -69,11 +69,11 @@ const SearchPage = ({ searchResult, searchParams, page }) => {
                 Search Result
               </h2>
               <div className='flex-1 flex justify-end items-center h-full text-gray-500'>
-                keywords: "
+                keywords:
                 <span className='text-red-500 dark:text-red-400'>
                   {searchParams}
                 </span>
-                ", {searchResult.items.length} post
+                , {searchResult.items.length} post
                 {searchResult.items.length > 1 ? 's' : null} found
               </div>
             </div>
@@ -89,7 +89,7 @@ export const getServerSideProps = async ({ query: { keywords, page = 1 } }) => {
   const searchParams =
     keywords === undefined || keywords === '' ? null : keywords.toString()
   const pageParam = +page === undefined || +page === 1 ? 1 : +page
-  const searchResult = await fantasyApi.fetchPosts(
+  const searchResult = await fetchPosts(
     pageParam,
     `(content ~ '${searchParams}')`
   )

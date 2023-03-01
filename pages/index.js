@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { PostList } from '@/components'
-import fantasyApi from '@/service/apis'
+import { fetchFeaturePosts } from '@/service/apis'
 import { siteName } from '@/constants/config'
 
 const Home = ({ featurePosts }) => {
@@ -17,7 +17,7 @@ const Home = ({ featurePosts }) => {
 }
 
 export const getStaticProps = async () => {
-  const featurePosts = await fantasyApi.fetchFeaturePosts()
+  const featurePosts = await fetchFeaturePosts()
   return {
     props: { featurePosts },
   }

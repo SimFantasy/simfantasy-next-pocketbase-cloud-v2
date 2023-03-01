@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Head from 'next/head'
 import { RiUserLine, RiChat3Line } from 'react-icons/ri'
-import fantasyApi from '@/service/apis'
+import { fetchAuthor } from '@/service/apis'
 import { imageUrl } from '@/utils'
 import { MarkdownContent } from '@/components'
 import { siteName } from '@/constants/config'
@@ -50,7 +50,7 @@ const AboutPage = ({ author }) => {
 }
 
 export const getStaticProps = async () => {
-  const author = await fantasyApi.fetchAuthor()
+  const author = await fetchAuthor()
 
   return {
     props: { author },

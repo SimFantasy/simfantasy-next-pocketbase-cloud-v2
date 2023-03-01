@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Head from 'next/head'
 import { RiCalendar2Line, RiFolder3Line } from 'react-icons/ri'
-import fantasyApi from '@/service/apis'
+import { fetchPosts, fetchPost } from '@/service/apis'
 import { MarkdownContent } from '@/components'
 import { fullDateFormat, serializationString } from '@/utils'
 import { siteName } from '@/constants/config'
@@ -72,7 +72,7 @@ const PostPage = ({ post }) => {
 }
 
 export const getStaticPaths = async () => {
-  const posts = await fantasyApi.fetchPosts(1)
+  const posts = await fetchPosts(1)
   const paths = posts.items.map(post => ({
     params: { param: [post.id.toString(), post.slug] },
   }))
@@ -84,7 +84,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async ({ params: { param } }) => {
   const [id, slug] = param
-  const post = await fantasyApi.fetchPost(id)
+  const post = await fetchPost(id)
   return {
     props: { post },
   }

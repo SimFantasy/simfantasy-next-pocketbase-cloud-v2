@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import fantasyApi from '@/service/apis'
+import { fetchPosts, fetchCategories } from '@/service/apis'
 import { Titlebar, PostList } from '@/components'
 import { siteName } from '@/constants/config'
 
@@ -19,8 +19,8 @@ const PostsPage = ({ posts, page, categories }) => {
 
 export const getServerSideProps = async ({ query: { page = 1 } }) => {
   const pageParam = +page === undefined || +page === 1 ? 1 : +page
-  const posts = await fantasyApi.fetchPosts(pageParam)
-  const categories = await fantasyApi.fetchCategories()
+  const posts = await fetchPosts(pageParam)
+  const categories = await fetchCategories()
   return {
     props: { posts, page: +page, categories },
   }

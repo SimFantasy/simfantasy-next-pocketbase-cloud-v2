@@ -1,33 +1,25 @@
-import pbApi from '@/service/pbApi'
+import { fetchList, fetchView } from '@/service/pbApi'
 import { featureLimit, pageLimit, authorId } from '@/constants/config'
 
-const fetchFeaturePosts = async () =>
-  await pbApi.fetchList('posts', 1, featureLimit, {
+export const fetchFeaturePosts = async () =>
+  await fetchList('posts', 1, featureLimit, {
     sort: '-created',
     expand: 'category',
     filter: 'isFeature = true',
   })
 
-const fetchPosts = async (page, filter = '') =>
-  await pbApi.fetchList('posts', page, pageLimit, {
+export const fetchPosts = async (page, filter = '') =>
+  await fetchList('posts', page, pageLimit, {
     sort: '-created',
     expand: 'category',
     filter,
   })
 
-const fetchPost = async id =>
-  await pbApi.fetchView('posts', id, {
+export const fetchPost = async id =>
+  await fetchView('posts', id, {
     expand: 'category',
   })
 
-const fetchCategories = async () => await pbApi.fetchList('categories', 1, 20)
+export const fetchCategories = async () => await fetchList('categories', 1, 20)
 
-const fetchAuthor = async () => await pbApi.fetchView('users', authorId)
-
-export default {
-  fetchFeaturePosts,
-  fetchPosts,
-  fetchPost,
-  fetchCategories,
-  fetchAuthor,
-}
+export const fetchAuthor = async () => await fetchView('users', authorId)
