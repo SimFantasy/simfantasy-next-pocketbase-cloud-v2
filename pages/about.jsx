@@ -16,7 +16,7 @@ const AboutPage = ({ author }) => {
         <title>About | {siteName}</title>
       </Head>
       <div className='page-main flex flex-col'>
-        <div className='flex justify-between items-center gap-6 p-6 bg-gray-50 dark:bg-gray-900 rounded-md'>
+        <div className='flex flex-col md:flex-row justify-between items-center gap-6 p-6 bg-gray-50 dark:bg-gray-900 rounded-md'>
           <div className='w-20 h-20 p-2 bg-gray-300 dark:bg-gray-700 rounded-full group'>
             <Image
               src={avatarImage}
@@ -28,7 +28,7 @@ const AboutPage = ({ author }) => {
             />
           </div>
           <div className='flex-1 flex flex-col gap-1 items-start text-sm'>
-            <h2 className='text-2xl text-gray-800 dark:text-white font-semibold'>
+            <h2 className='text-2xl text-gray-800 dark:text-white font-semibold w-full md:w-auto flex justify-center items-center'>
               {name}
             </h2>
             <div className='text-gray-500 flex justify-start items-center h-full gap-2'>
