@@ -7,8 +7,8 @@ import { MarkdownContent } from '@/components'
 import { siteName } from '@/constants/config'
 
 const AboutPage = ({ author }) => {
-  const { name, avatar, bio, content, title } = author
-  const avatarImage = imageUrl('users', avatar)
+  const { name, handImage, bio, content, title } = author
+  const avatarImage = imageUrl('users', handImage)
 
   return (
     <>
@@ -18,7 +18,7 @@ const AboutPage = ({ author }) => {
       <div className='page-main flex flex-col'>
         <div className='flex flex-col md:flex-row justify-between items-center gap-6 p-6 bg-gray-50 dark:bg-gray-900 rounded-md'>
           <div className='w-20 h-20 p-2 bg-gray-300 dark:bg-gray-700 rounded-full group'>
-            <img
+            <Image
               src={avatarImage}
               alt={name}
               width={60}
