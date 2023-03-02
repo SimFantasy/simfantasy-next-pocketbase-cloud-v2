@@ -13,6 +13,16 @@ const nextConfig = {
         protocol: 'https',
         hostname: '**.sspai.com',
       },
+      {
+        protocol: 'https',
+        hostname: '**.pockethost.io',
+        pathname: '/api/files/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.github.io',
+        pathname: '/images/**',
+      },
     ],
   },
 }

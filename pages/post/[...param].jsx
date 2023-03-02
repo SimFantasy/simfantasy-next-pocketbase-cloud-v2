@@ -24,16 +24,18 @@ const PostPage = ({ post }) => {
         </title>
       </Head>
       <div className='page-main flex flex-col'>
-        <div className='w-full max-h-[320px] rounded-md overflow-hidden mb-10'>
-          <Image
-            src={coverImage}
-            alt={title}
-            width={768}
-            height={430}
-            priority
-            className='w-full h-auto object-contain object-center rounded-md'
-          />
-        </div>
+        {coverImage && (
+          <div className='w-full max-h-[320px] rounded-md overflow-hidden mb-10'>
+            <Image
+              src={coverImage}
+              alt={title}
+              width={768}
+              height={430}
+              priority
+              className='w-full h-auto object-contain object-center rounded-md'
+            />
+          </div>
+        )}
         <h2 className='text-xl text-gray-800 dark:text-white font-semibold'>
           {title}
         </h2>
