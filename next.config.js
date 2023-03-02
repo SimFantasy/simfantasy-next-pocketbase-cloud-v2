@@ -15,12 +15,12 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: '**.pockethost.io',
+        hostname: 'fantasy.pockethost.io',
         pathname: '/api/files/**',
       },
       {
         protocol: 'https',
-        hostname: '**.github.io',
+        hostname: 'simfantasy.github.io',
         pathname: '/images/**',
       },
     ],
