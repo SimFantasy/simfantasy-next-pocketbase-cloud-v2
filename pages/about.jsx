@@ -18,13 +18,12 @@ const AboutPage = ({ author }) => {
       <div className='page-main flex flex-col'>
         <div className='flex flex-col md:flex-row justify-between items-center gap-6 p-6 bg-gray-50 dark:bg-gray-900 rounded-md'>
           <div className='w-20 h-20 p-2 bg-gray-300 dark:bg-gray-700 rounded-full group'>
-            <Image
+            <img
               src={avatarImage}
               alt={name}
               width={60}
               height={60}
               className='w-full h-auto rounded-full group-hover:animate-spin cursor-pointer'
-              priority
             />
           </div>
           <div className='flex-1 flex flex-col gap-1 items-start text-sm'>
