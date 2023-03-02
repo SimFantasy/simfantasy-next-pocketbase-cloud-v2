@@ -7,8 +7,8 @@ import { MarkdownContent } from '@/components'
 import { siteName } from '@/constants/config'
 
 const AboutPage = ({ author }) => {
-  const { name, handImage, bio, content, title } = author
-  const avatarImage = imageUrl('users', handImage)
+  const { name, headImage, bio, content, title } = author
+  const avatarImage = imageUrl('users', headImage)
 
   return (
     <>
